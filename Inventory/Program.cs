@@ -29,6 +29,12 @@ namespace GroceryStoreDiscountCalculator
             Product pen = new Product("Pen", 11.06);
             Product bag = new Product("Bag", 110.08);
 
+            int apples = 0;
+            int brushs = 0;
+            int mirrors = 0;
+            int pens= 0;
+            int bags = 0;
+
             Console.WriteLine("Welcome to the Grocery Store!");
             Console.WriteLine("-----------------------------");
 
@@ -53,18 +59,23 @@ namespace GroceryStoreDiscountCalculator
                 {
                     case 1:
                         AddProductToCart(cart, apple, quantity);
+                        apples += quantity;
                         break;
                     case 2:
                         AddProductToCart(cart, brush, quantity);
+                        brushs += quantity;
                         break;
                     case 3:
                         AddProductToCart(cart, mirror, quantity);
+                        mirrors += quantity;
                         break;
                     case 4:
                         AddProductToCart(cart, pen, quantity);
+                        pens += quantity;
                         break;
                     case 5:
                         AddProductToCart(cart, bag, quantity);
+                        bags += quantity;
                         break;
                     default:
                         Console.WriteLine("Invalid product choice. Please try again.");
@@ -118,7 +129,17 @@ namespace GroceryStoreDiscountCalculator
             Console.WriteLine("Receipt");
             Console.WriteLine("-------");
 
-            
+            if (apples > 0)
+                Console.WriteLine($"{apple.Name} (x{apples}): ${apples * apple.Price:F2}");
+            if (brushs > 0)
+                Console.WriteLine($"{brush.Name} (x{brushs}): ${brushs * brush.Price:F2}");
+            if (mirrors > 0)
+                Console.WriteLine($"{mirror.Name} (x{mirrors}): ${mirrors * mirror.Price:F2}");
+            if (pens > 0)
+                Console.WriteLine($"{pen.Name} (x{pens}): ${pens * pen.Price:F2}");
+            if (bags > 0)
+                Console.WriteLine($"{bag.Name} (x{bags}): ${bags * bag.Price:F2}");
+
 
             Console.WriteLine($"Total Before Discount: ${totalBeforeDiscount:F2}");
             Console.WriteLine($"Discount Applied: ${discount:F2}");
