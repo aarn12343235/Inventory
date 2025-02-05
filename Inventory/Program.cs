@@ -29,14 +29,11 @@ namespace GroceryStoreDiscountCalculator
             Product pen = new Product("Pen", 11.06);
             Product bag = new Product("Bag", 110.08);
 
-            bool continueShopping = true;
+            Console.WriteLine("Welcome to the Grocery Store!");
+            Console.WriteLine("-----------------------------");
 
-            while (continueShopping)
+            while (true)
             {
-                Console.Clear();
-                Console.WriteLine("Welcome to the Grocery Store!");
-                Console.WriteLine("-----------------------------");
-
                 
                 Console.WriteLine("Available Products:");
                 Console.WriteLine($"1. {apple.Name} - ${apple.Price:F2}");
@@ -87,17 +84,17 @@ namespace GroceryStoreDiscountCalculator
                 string response = Console.ReadLine().ToLower();
 
                 if (response != "yes")
-                {
-                    continueShopping = false;
-                }
+                
+                    break;
+                
             }
 
             
             double totalBeforeDiscount = 0;
             foreach (Product product in cart)
-            {
+            
                 totalBeforeDiscount += product.Price;
-            }
+            
 
             
             double discount = 0;
